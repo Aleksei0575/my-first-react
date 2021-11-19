@@ -1,0 +1,27 @@
+.user-info {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  grid-column-gap: 1%;
+  /* align-items: center; */
+}
+
+.user-info__logo {
+  display: block;
+  margin-right: 1%;
+  width: 90px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.user-info__block p {
+  margin: 0;
+}
+
+.user-info__title {
+  margin: 0;
+}
+
+.user-info__site a {
+  color: red;
+  text-decoration: underline;
+}

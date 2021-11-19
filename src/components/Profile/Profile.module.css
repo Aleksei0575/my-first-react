@@ -1,0 +1,10 @@
+.post-info {
+  grid-area: info;
+  color: #000000;
+}
+
+.post-info__img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}

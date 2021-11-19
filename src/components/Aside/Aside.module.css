@@ -1,0 +1,31 @@
+.aside-bar {
+  grid-area: aside;
+  padding: 10px;
+  /* text-align: center; */
+  background-color: rgb(5, 163, 5);
+}
+
+.aside-bar__navigation {
+  margin-bottom: 30px;
+}
+
+.aside-bar__navigation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aside-bar__navigation-item {
+  padding: 10px 0;
+}
+
+.aside-bar__navigation-link {
+  display: block;
+  width: inherit;
+  height: inherit;
+}
+
+.aside-bar__settings {
+  margin: 0;
+  padding: 10px 0;
+}

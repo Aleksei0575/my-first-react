@@ -1,0 +1,30 @@
+.posts__history p {
+  margin: 0 0 15px;
+}
+
+
+
+.posts__history-item {
+  padding-left: 50px;
+  position: relative;
+}
+
+.posts__history-item span {
+  display: block;
+  color: green;
+}
+
+.posts__history-item::after {
+  position: absolute;
+  content: "";
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4KWIKwaojpneN3qgoL7Ec2xT4EcwjbQ8ImQ&usqp=CAU');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: #298ddf;
+}
