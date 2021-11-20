@@ -3,7 +3,7 @@
 }
 
 .posts__title {
-  margin-bottom: 0 0 10px;
+  margin: 0 0 10px;
 }
 
 .posts__form {
@@ -18,11 +18,13 @@
   margin-bottom: 15px;
 }
 
-.posts__form-message input {
+.posts__form-message textarea {
   width: 100%;
   padding: 10px 10px 25px 18px;
   appearance: none;
   border: none;
+  resize: none;
+  outline: none;
 
   background-color: #e5ede8;
 }

@@ -1,0 +1,9 @@
+.news {
+    background-color: #47ff6f;
+    min-height: 100%;
+}
+
+.news h2 {
+    margin: 0;
+    color: tomato;
+}

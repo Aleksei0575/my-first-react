@@ -1,0 +1,8 @@
+.dialog {
+    background-color: #47afff;
+    min-height: 100%;
+}
+
+.dialog h2 {
+    margin: 0;
+}

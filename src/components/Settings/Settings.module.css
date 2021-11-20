@@ -1,0 +1,9 @@
+.settings {
+    background-color: #6947ff;
+    min-height: 100%;
+}
+
+.settings h2 {
+    margin: 0;
+    color: #ff4747;
+}
