@@ -23,12 +23,13 @@ const App = () => {
                             <Aside/>
 
                             <section className={"content-wrapper__block"}>
+                                <h1 className='visually-hidden'>Page title</h1>
                                 <Routes>
-                                    <Route path='/profile' element={<Profile />} />
-                                    <Route path='/dialogs' element={<Dialogs />} />
-                                    <Route path='/news' element={<News />} />
-                                    <Route path='/music' element={<Music />} />
-                                    <Route path='/settings' element={<Settings />} />
+                                    <Route path='/' element={<Profile />} />
+                                    <Route path='/dialogs/*' element={<Dialogs />} />
+                                    <Route path='/news/*' element={<News />} />
+                                    <Route path='/music/*' element={<Music />} />
+                                    <Route path='/settings/*' element={<Settings />} />
                                 </Routes>
                             </section>
                         </div>

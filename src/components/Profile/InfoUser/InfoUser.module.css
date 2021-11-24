@@ -3,6 +3,7 @@
   grid-template-columns: 90px 1fr;
   grid-column-gap: 1%;
   /* align-items: center; */
+  margin-bottom: 20px;
 }
 
 .user-info__logo {

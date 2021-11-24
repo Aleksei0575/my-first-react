@@ -13,9 +13,11 @@ const Profile = () => {
                 alt="promo blog"
             />
 
-            <InfoUser/>
+            <InfoUser logoPath="https://i.stack.imgur.com/1RfMf.jpg" name="Aleksei Ch." birth="Date of birth: 20, May"
+                      city="City: Mirnohrad" education="Education: National Mining Academy of Ukraine"
+                      sitePath="https://aleksei0575.github.io/myPortfolio/" siteName="My portfolio"/>
 
-            <Posts/>
+            <Posts title="My posts" textButton="Send" />
         </div>
     );
 };

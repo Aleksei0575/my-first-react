@@ -1,23 +1,23 @@
 import React from "react";
 import classes from './InfoUser.module.css';
 
-const InfoUser = () => {
+const InfoUser = (props) => {
     return (
         <div className={`${classes['post-info__user']} ${classes['user-info']}`}>
             <img
                 className={classes['user-info__logo']}
-                src="https://i.stack.imgur.com/1RfMf.jpg"
+                src={props.logoPath}
                 alt="logo user"
             />
             <div className={classes['user-info__block']}>
-                <h2 className={classes['user-info__title']}>Aleksei Ch.</h2>
-                <p className={classes['user-info__born']}>Date of birth: 20, May</p>
-                <p className={classes['user-info__city']}>City: Mirnohrad</p>
+                <h2 className={classes['user-info__title']}>{props.name}</h2>
+                <p className={classes['user-info__born']}>{props.birth}</p>
+                <p className={classes['user-info__city']}>{props.city}</p>
                 <p className={classes['user-info__education']}>
-                    Education: National Mining Academy of Ukraine
+                    {props.education}
                 </p>
                 <p className={classes['user-info__site']}>
-                    Web-site: <a href="https://aleksei0575.github.io/myPortfolio/">My portfolio</a>
+                    Web-site: <a href={props.sitePath}>{props.siteName}</a>
                 </p>
             </div>
         </div>

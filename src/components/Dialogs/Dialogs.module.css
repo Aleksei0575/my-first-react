@@ -1,8 +1,72 @@
-.dialog {
-    background-color: #47afff;
+.dialogs {
+    color: #292929;
     min-height: 100%;
 }
 
-.dialog h2 {
+.dialogs h2 {
+    margin: 0 0 25px;
+}
+
+.dialogs__wrapper {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-column-gap: 2%;
+}
+
+.dialogs__user-list {
     margin: 0;
+    padding: 0;
+    list-style: none;
+
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    border-right: 2px solid #292929;
+}
+
+.dialogs__user-item {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+
+.dialogs__user-item--active {
+    color: #ff4747;
+}
+
+.dialogs__messages-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dialogs__messages-item {
+    display: flex;
+    /*justify-content: space-between;*/
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.dialogs__messages-item div {
+    width: 10%;
+    margin-right: 2%;
+}
+
+.dialogs__messages-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.dialogs__messages-item span {
+    display: block;
+}
+
+.dialogs__messages-item p {
+    margin: 0;
+    padding: 10px;
+    width: 59%;
+
+    text-align: left;
+    border: 1px solid #292929;
+    border-radius: 10px;
 }

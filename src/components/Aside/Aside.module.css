@@ -1,6 +1,7 @@
 .aside-bar {
   grid-area: aside;
   padding: 10px;
+  min-height: 100vh;
   /* text-align: center; */
   background-color: rgb(5, 163, 5);
 }
@@ -19,13 +20,22 @@
   padding: 10px 0;
 }
 
-.aside-bar__navigation-link {
+.aside-bar__navigation-item a,
+.aside-bar__settings a {
   display: block;
   width: inherit;
   height: inherit;
 }
 
+.aside-bar__navigation-item .active {
+  color: #f96513;
+}
+
 .aside-bar__settings {
   margin: 0;
   padding: 10px 0;
+}
+
+.aside-bar__settings .active {
+  color: #f96513;
 }

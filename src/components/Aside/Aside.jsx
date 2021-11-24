@@ -1,5 +1,6 @@
 import React from "react";
 import classes from './Aside.module.css';
+import {NavLink} from "react-router-dom";
 
 const Aside = () => {
     return (
@@ -7,32 +8,32 @@ const Aside = () => {
             <nav className={classes['aside-bar__navigation']}>
                 <ul className={classes['aside-bar__navigation-list']}>
                     <li className={classes['aside-bar__navigation-item']}>
-                        <a className={classes['aside-bar__navigation-link']} href="/profile">
+                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/">
                             Profile
-                        </a>
+                        </NavLink>
                     </li>
                     <li className={classes['aside-bar__navigation-item']}>
-                        <a className={classes['aside-bar__navigation-link']} href="/dialogs">
+                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/dialogs">
                             Messages
-                        </a>
+                        </NavLink>
                     </li>
                     <li className={classes['aside-bar__navigation-item']}>
-                        <a className={classes['aside-bar__navigation-link']} href="/news">
+                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/news">
                             News
-                        </a>
+                        </NavLink>
                     </li>
                     <li className={classes['aside-bar__navigation-item']}>
-                        <a className={classes['aside-bar__navigation-link']} href="/music">
+                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/music">
                             Music
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>
 
             <p className={classes['aside-bar__settings']}>
-                <a className={classes['aside-bar__settings-link']} href="/settings">
+                <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/settings">
                     Settings
-                </a>
+                </NavLink>
             </p>
         </aside>
     );
