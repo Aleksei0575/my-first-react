@@ -12,7 +12,7 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import {Routes} from "react-router";
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -25,11 +25,11 @@ const App = () => {
                             <section className={"content-wrapper__block"}>
                                 <h1 className='visually-hidden'>Page title</h1>
                                 <Routes>
-                                    <Route path='/' element={<Profile />} />
-                                    <Route path='/dialogs/*' element={<Dialogs />} />
-                                    <Route path='/news/*' element={<News />} />
-                                    <Route path='/music/*' element={<Music />} />
-                                    <Route path='/settings/*' element={<Settings />} />
+                                    <Route path='/' element={ <Profile posts={ props.posts } /> } />
+                                    <Route path='/dialogs/*' element={ <Dialogs users={ props.users } messages={ props.messages } /> } />
+                                    <Route path='/news/*' element={ <News /> } />
+                                    <Route path='/music/*' element={ <Music /> } />
+                                    <Route path='/settings/*' element={ <Settings /> } />
                                 </Routes>
                             </section>
                         </div>

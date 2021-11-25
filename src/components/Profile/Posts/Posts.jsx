@@ -3,28 +3,10 @@ import NewPost from './NewPost/NewPost';
 import classes from './Posts.module.css';
 
 const Posts = (props) => {
-    //Массив с данными
-    let postsData = [
-        {
-            id: 1,
-            message: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-            likesCount: 15
-        },
-        {
-            id: 2,
-            message: "Est itaque iste possimus, dolore totam ipsa delectus excepturi.",
-            likesCount: 25
-        },
-        {
-            id: 3,
-            message: "Est itaque consectetur adipisicing elit.",
-            likesCount: 8
-        }
-    ];
 
     // Функция отрисоуи КОМПОНЕНТЫ в разметке JSX на основе входящих данных из массива
     let postElements =
-        postsData.map( (el, index) => <NewPost key={index} message={el.message} likesCount={el.likesCount} /> )
+        props.posts.map( (el, index) => <NewPost key={index} message={el.message} likesCount={el.likesCount} /> )
 
     return (
         <div className={`${classes.posts}`}>
