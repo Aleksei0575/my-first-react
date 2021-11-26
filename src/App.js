@@ -25,8 +25,14 @@ const App = (props) => {
                             <section className={"content-wrapper__block"}>
                                 <h1 className='visually-hidden'>Page title</h1>
                                 <Routes>
-                                    <Route path='/' element={ <Profile posts={ props.posts } /> } />
-                                    <Route path='/dialogs/*' element={ <Dialogs users={ props.users } messages={ props.messages } /> } />
+                                    <Route path='/'
+                                           element={ <Profile
+                                               state={ props.appState.profilePage } />
+                                           } />
+                                    <Route path='/dialogs/*'
+                                           element={ <Dialogs
+                                               state={ props.appState.dialogsPage } />
+                                           } />
                                     <Route path='/news/*' element={ <News /> } />
                                     <Route path='/music/*' element={ <Music /> } />
                                     <Route path='/settings/*' element={ <Settings /> } />

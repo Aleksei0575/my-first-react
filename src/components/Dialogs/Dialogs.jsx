@@ -8,11 +8,11 @@ const Dialogs = (props) => {
     // Функции отрисовки КОМПОНЕНТ в разметке JSX на основе входящих данных из массивов
     // Функция отрисовки КОМПОНЕТЫ UserItem
     let usersElement =
-        props.users.map( (el, index) => (<UserItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} />) );
+        props.state.users.map( (el, index) => (<UserItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} />) );
 
     // Функция отрисовки КОМПОНЕТЫ MessagesUser
     let usersMessages =
-        props.messages.map( (el, index) => <MessagesUser key={index} name={el.name} logoPath={el.logoPath} text={el.text} /> );
+        props.state.messages.map( (el, index) => <MessagesUser key={index} name={el.name} logoPath={el.logoPath} text={el.text} /> );
 
     return (
         <div className={`${classes.dialogs}`}>

@@ -17,7 +17,7 @@ const Profile = (props) => {
                       city="City: Mirnohrad" education="Education: National Mining Academy of Ukraine"
                       sitePath="https://aleksei0575.github.io/myPortfolio/" siteName="My portfolio"/>
 
-            <Posts title="My posts" textButton="Send" posts={props.posts} />
+            <Posts title="My posts" textButton="Send" post={ props.state.posts } />
         </div>
     );
 };

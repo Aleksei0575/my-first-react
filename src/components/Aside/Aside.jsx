@@ -7,7 +7,8 @@ const Aside = () => {
         <aside className={`${classes['content-wrapper__menu']} ${classes['aside-bar']}`}>
             <nav className={classes['aside-bar__navigation']}>
                 <ul className={classes['aside-bar__navigation-list']}>
-                    <li className={classes['aside-bar__navigation-item']}>
+                    <li className={
+                        classes['aside-bar__navigation-item']}>
                         <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/">
                             Profile
                         </NavLink>
