@@ -55,6 +55,46 @@ let state = {
                 likesCount: 8
             },
         ]
+    },
+    aside: {
+        navItems: [
+            {
+                linkName: "Profile",
+                linkPath: "/"
+            },
+            {
+                linkName: "Messages",
+                linkPath: "/dialogs"
+            },
+            {
+                linkName: "News",
+                linkPath: "/news"
+            },
+            {
+                linkName: "Music",
+                linkPath: "/music"
+            },
+        ],
+        friends: [
+            {
+                id: 1,
+                name: "Dmitry",
+                activeItem: "aside-bar__friends-item--active",
+                activePseudo: "aside-bar__friends-item--active::before"
+            },
+            {
+                id: 2,
+                name: "Andrey",
+                activeItem: "aside-bar__friends-item--active",
+                activePseudo: "aside-bar__friends-item--active::before"
+            },
+            {
+                id: 3,
+                name: "Svetlana",
+                activeItem: "aside-bar__friends-item--active",
+                activePseudo: "aside-bar__friends-item--active::before"
+            },
+        ]
     }
 };
 

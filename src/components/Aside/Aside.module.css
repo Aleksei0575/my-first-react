@@ -3,6 +3,8 @@
   padding: 10px;
   min-height: 100vh;
   /* text-align: center; */
+  font-size: 20px;
+  line-height: 35px;
   background-color: rgb(5, 163, 5);
 }
 
@@ -21,7 +23,8 @@
 }
 
 .aside-bar__navigation-item a,
-.aside-bar__settings a {
+.aside-bar__settings a,
+.aside-bar__friends a{
   display: block;
   width: inherit;
   height: inherit;
@@ -32,10 +35,60 @@
 }
 
 .aside-bar__settings {
-  margin: 0;
+  margin: 0 0 55px;
   padding: 10px 0;
 }
 
 .aside-bar__settings .active {
   color: #f96513;
+}
+
+.aside-bar__friends-block {
+  width: 100%;
+}
+
+.aside-bar__friends-title {
+  margin: 0 0 25px;
+}
+
+.aside-bar__friends-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2%;
+  grid-row-gap: 15%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aside-bar__friends-item {
+  position: relative;
+  width: 100%;
+  padding-top: 50px;
+  font-size: 18px;
+  line-height: 25px;
+  color: white;
+  text-align: center;
+}
+
+.aside-bar__friends-item::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-image: url('https://www.pngall.com/wp-content/uploads/1/Smile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.aside-bar__friends-item--active {
+  color: red;
+}
+
+.aside-bar__friends-item--active::before {
+  background-color: #ff0000;
 }

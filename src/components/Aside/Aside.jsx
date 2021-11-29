@@ -1,33 +1,25 @@
 import React from "react";
 import classes from './Aside.module.css';
 import {NavLink} from "react-router-dom";
+import FriendsItem from "./FriendItem/FriendsItem";
+import NavigationItem from "./NavigationItem/NavigationItem";
 
-const Aside = () => {
+
+const Aside = (props) => {
+
+    // Функция отрисовки КОМПОНЕТЫ FriendsItem
+    let navElement =
+        props.state.navItems.map( (el, index) => (<NavigationItem key={index} linkName={el.linkName} linkPath={el.linkPath}  />) );
+
+    // Функция отрисовки КОМПОНЕТЫ FriendsItem
+    let friendsElement =
+        props.state.friends.map( (el, index) => (<FriendsItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} activePseudoEl={el.activePseudo} />) );
+
     return (
         <aside className={`${classes['content-wrapper__menu']} ${classes['aside-bar']}`}>
             <nav className={classes['aside-bar__navigation']}>
                 <ul className={classes['aside-bar__navigation-list']}>
-                    <li className={
-                        classes['aside-bar__navigation-item']}>
-                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/">
-                            Profile
-                        </NavLink>
-                    </li>
-                    <li className={classes['aside-bar__navigation-item']}>
-                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/dialogs">
-                            Messages
-                        </NavLink>
-                    </li>
-                    <li className={classes['aside-bar__navigation-item']}>
-                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/news">
-                            News
-                        </NavLink>
-                    </li>
-                    <li className={classes['aside-bar__navigation-item']}>
-                        <NavLink className={ navLink => navLink.isActive ? classes.active : classes[''] } to="/music">
-                            Music
-                        </NavLink>
-                    </li>
+                    { navElement }
                 </ul>
             </nav>
 
@@ -36,6 +28,13 @@ const Aside = () => {
                     Settings
                 </NavLink>
             </p>
+
+            <div className={classes['aside-bar__friends-block']}>
+                <h2 className={classes['aside-bar__friends-title']}>Friends</h2>
+                <ul className={classes['aside-bar__friends-list']}>
+                    { friendsElement }
+                </ul>
+            </div>
         </aside>
     );
 };
