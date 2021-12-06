@@ -1,5 +1,7 @@
 // Объект с данными для проекта (пока данные для страницы Dialogs и Profile > Posts)
 
+import {rerenderEntireTree} from "../render";
+
 let state = {
     dialogsPage: {// ОБЪЕКТ-ВЕТКА. Каждая ветка обслуживает одну какую-то страницу
         users: [
@@ -36,6 +38,7 @@ let state = {
                 text: "Ipsum dolor sit amet lorem consectetur adipisicing elit."
             },
         ],
+        newMessageText: 'default text from BLL'
     },
     profilePage: {// ВЕТКА. Каждая ветка обслуживает одну какую-то страницу
         posts: [
@@ -54,7 +57,8 @@ let state = {
                 message: "Est itaque consectetur adipisicing elit.",
                 likesCount: 8
             },
-        ]
+        ],
+        newPostText: 'default text from BLL'
     },
     aside: {
         navItems: [
@@ -96,6 +100,40 @@ let state = {
             },
         ]
     }
+};
+
+export let addPost = () => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    };
+
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+};
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 5,
+        name: "SomeUser",
+        logoPath: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ALNyG_Cty1d4Xahk-P-UZhAxS0-SiLss1w&usqp=CAU",
+        text: state.dialogsPage.newMessageText
+    }
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
+    rerenderEntireTree(state);
 };
 
 export default state;
