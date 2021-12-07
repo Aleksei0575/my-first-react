@@ -1,6 +1,8 @@
 // Объект с данными для проекта (пока данные для страницы Dialogs и Profile > Posts)
 
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => { //функция-заглушка
+    console.log('state change');
+}
 
 let state = {
     dialogsPage: {// ОБЪЕКТ-ВЕТКА. Каждая ветка обслуживает одну какую-то страницу
@@ -102,7 +104,7 @@ let state = {
     }
 };
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -114,7 +116,7 @@ export let addPost = () => {
     rerenderEntireTree(state);
 };
 
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id: 5,
         name: "SomeUser",
@@ -126,14 +128,18 @@ export let addMessage = () => {
     rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 };
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 };
+
+export const listener = (observer) => { //функция слушает/наблюдает за state-данными
+    rerenderEntireTree = observer;      //в случае их изменений запускает функцию listener
+}                                       //которая внутри себя вызывает rerenderEntireTree()
 
 export default state;

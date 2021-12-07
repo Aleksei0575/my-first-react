@@ -12,6 +12,7 @@ import Settings from "./components/Settings/Settings";
 import {Routes, Route} from "react-router";
 
 const App = (props) => {
+
     return (
         <div className="app-wrapper">
             <div className="container">

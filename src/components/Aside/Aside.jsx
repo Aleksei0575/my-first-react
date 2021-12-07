@@ -6,7 +6,6 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 
 const Aside = (props) => {
-
     // Функция отрисовки КОМПОНЕТЫ FriendsItem
     let navElement =
         props.state.navItems.map( (el, index) => (<NavigationItem key={index} linkName={el.linkName} linkPath={el.linkPath}  />) );
