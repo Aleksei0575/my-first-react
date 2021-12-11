@@ -1,11 +1,12 @@
-import state, {listener} from "./redax/state";
+// import state, {listener} from "./redax/state";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addPost, updateNewMessageText, updateNewPostText} from "./redax/state";
-import { addMessage } from "./redax/state";
+import store from "./redax/state";
+// import { addMessage } from "./redax/state";
 
 import {BrowserRouter} from "react-router-dom";
 
@@ -15,16 +16,18 @@ let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App appState={ state } addPost={ addPost } addMessage={ addMessage }
-                     updateNewPostText={ updateNewPostText } updateNewMessageText={updateNewMessageText} />
+                <App appState={ state } addPost={ store.addPost.bind(store) }
+                     addMessage={ store.addMessage.bind(store) }
+                     updateNewPostText={ store.updateNewPostText.bind(store) }
+                     updateNewMessageText={ store.updateNewMessageText.bind(store) } />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
 };
 
-rerenderEntireTree(state);
-listener(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.listener(rerenderEntireTree);
 
 
 reportWebVitals();

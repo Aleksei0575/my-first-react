@@ -4,6 +4,8 @@ import Posts from "./Posts/Posts";
 import classes from './Profile.module.css';
 
 const Profile = (props) => {
+    // debugger;
+    // console.log(props);
     return (
         <div className={`${classes['post-info']}`}>
             <h1 className='visually-hidden'>Post information</h1>
