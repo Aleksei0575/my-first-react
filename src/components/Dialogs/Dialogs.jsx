@@ -19,12 +19,14 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
     let addMessageToComponents = (evt) => {
         evt.preventDefault();
-        props.addMessage();
+        //props.addMessage();
+        props.dispatch({type: 'ADD-MESSAGE'});
     }
 
     let changeDefaultText = () => {
         let newText = newMessageElement.current.value;
-        props.updateNewMessageText(newText);
+        //props.updateNewMessageText(newText);
+        props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: newText});
     }
 
     return (

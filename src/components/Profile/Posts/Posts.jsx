@@ -11,12 +11,14 @@ const Posts = (props) => {
     let newPostElement = React.createRef();
     let addPostToComponents = (evt) => {
         evt.preventDefault();
-        props.addPost();
+        //props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     };
 
     let changeDefaultText = () => {
         let newText = newPostElement.current.value;
-        props.updateNewPostText(newText);
+        //props.updateNewPostText(newText);
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: newText });
     }
     return (
         <div className={`${classes.posts}`}>
