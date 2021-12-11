@@ -2,6 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px;
+  box-shadow: 3px 0 15px 4px grey, -3px 0 15px 4px grey;
 }
 
 .content-wrapper {

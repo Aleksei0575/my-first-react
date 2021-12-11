@@ -1,4 +1,8 @@
 // Объект с данными для проекта (пока данные для страницы Dialogs и Profile > Posts)
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let store = {
     _state: {
@@ -145,16 +149,32 @@ let store = {
     //которая внутри себя вызывает _callSubscriber()
 
     dispatch(action) { //action - объект, который описывет какое действие совершить, имеет
-        if(action.type === 'ADD-POST') { // обязательное св-во type: '', - которое описывет
+        if(action.type === ADD_POST) { // обязательное св-во type: '', - которое описывет
             this._addPost();
-        } else if(action.type === 'ADD-MESSAGE') {
+        } else if(action.type === ADD_MESSAGE) {
             this._addMessage();
-        } else if(action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if(action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.newText);
-        } else if(action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        } else if(action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._updateNewMessageText(action.newText);
         }
     }
 }
+
+export const addPostActionCreator = () => ({ type: ADD_POST, });
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE, });
+
+export const updateNewPostTextActionCreater = (text) =>
+    ({
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text,
+    });
+
+export const updateNewMessageTextActionCreater = (text) =>
+    ({
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        newText: text,
+    });
 
 export default store;

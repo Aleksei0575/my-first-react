@@ -1,6 +1,7 @@
 import React from 'react';
 import NewPost from './NewPost/NewPost';
 import classes from './Posts.module.css';
+import {addPostActionCreator, updateNewPostTextActionCreater} from "../../../redax/state";
 
 const Posts = (props) => {
 
@@ -9,16 +10,17 @@ const Posts = (props) => {
         props.post.map((el, index) => <NewPost key={index} message={el.message} likesCount={el.likesCount}/>)
 
     let newPostElement = React.createRef();
+
     let addPostToComponents = (evt) => {
         evt.preventDefault();
         //props.addPost();
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     };
 
     let changeDefaultText = () => {
         let newText = newPostElement.current.value;
         //props.updateNewPostText(newText);
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: newText });
+        props.dispatch(updateNewPostTextActionCreater(newText));
     }
     return (
         <div className={`${classes.posts}`}>

@@ -2,6 +2,10 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import UserItem from "./UserItem/UserItem";
 import MessagesUser from "./MessagesUser/MessagesUser";
+import {
+    addMessageActionCreator,
+    updateNewMessageTextActionCreater,
+} from "../../redax/state";
 
 const Dialogs = (props) => {
 
@@ -20,13 +24,13 @@ const Dialogs = (props) => {
     let addMessageToComponents = (evt) => {
         evt.preventDefault();
         //props.addMessage();
-        props.dispatch({type: 'ADD-MESSAGE'});
+        props.dispatch(addMessageActionCreator());
     }
 
     let changeDefaultText = () => {
         let newText = newMessageElement.current.value;
         //props.updateNewMessageText(newText);
-        props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: newText});
+        props.dispatch(updateNewMessageTextActionCreater(newText));
     }
 
     return (
