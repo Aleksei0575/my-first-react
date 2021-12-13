@@ -191,7 +191,7 @@ export const updateNewMessageTextActionCreater = (text) =>
         newText: text,
     });
 
-export const addFriendActionCreator = (id) =>
+export const addFriendActionCreator = () =>
     ({
         type: ADD_FRIEND,
     });
