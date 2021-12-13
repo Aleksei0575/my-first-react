@@ -5,12 +5,13 @@ import {NavLink} from "react-router-dom";
 // Компонента для Aside > Friends
 const FriendsItem = (props) => {
     let path = "/dialogs/" + props.id;
+    let id = props.id;
     let active = props.activeItem;
     let activePseudo = props.activePseudoEl;
     return (
         <li className={`${classes['aside-bar__friends-item']} ${classes[activePseudo]}`}>
             <NavLink className={ activeLink => activeLink.isActive ? classes[active] : classes[''] }
-                     to={path}>
+                     to={path} id={id} >
                 {props.name}
             </NavLink>
         </li>

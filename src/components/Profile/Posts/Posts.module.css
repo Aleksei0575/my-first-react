@@ -40,7 +40,9 @@
 
   color: #ffffff;
   border: none;
+  border-radius: 50px;
   background-color: rgb(5, 163, 5);
+  box-shadow: -2px 5px 5px 1px rgba(41, 90, 118, 0.65);
 }
 
 .posts__history p {

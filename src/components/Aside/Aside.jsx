@@ -3,6 +3,7 @@ import classes from './Aside.module.css';
 import {NavLink} from "react-router-dom";
 import FriendsItem from "./FriendItem/FriendsItem";
 import NavigationItem from "./NavigationItem/NavigationItem";
+import {addFriendActionCreator} from "../../redax/state";
 
 
 const Aside = (props) => {
@@ -13,6 +14,10 @@ const Aside = (props) => {
     // Функция отрисовки КОМПОНЕТЫ FriendsItem
     let friendsElement =
         props.state.friends.map( (el, index) => (<FriendsItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} activePseudoEl={el.activePseudo} />) );
+
+    let addFriendsToComponent = () => {
+        props.dispatch(addFriendActionCreator());
+    };
 
     return (
         <aside className={`${classes['content-wrapper__menu']} ${classes['aside-bar']}`}>
@@ -33,6 +38,7 @@ const Aside = (props) => {
                 <ul className={classes['aside-bar__friends-list']}>
                     { friendsElement }
                 </ul>
+                <button className={classes['aside-bar__friends-btn']} type='button' onClick={ addFriendsToComponent }>Add friend</button>
             </div>
         </aside>
     );

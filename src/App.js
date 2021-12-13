@@ -12,7 +12,7 @@ import Settings from "./components/Settings/Settings";
 import {Routes, Route} from "react-router";
 
 
-const App = (props) => {
+const    App = (props) => {
 
     return (
         <div className="app-wrapper">
@@ -20,7 +20,7 @@ const App = (props) => {
                 <Header/>
                 <main>
                     <div className="content-wrapper">
-                        <Aside state={ props.appState.aside } />
+                        <Aside state={ props.appState.aside } dispatch={props.dispatch} />
 
                         <section className={"content-wrapper__block"}>
                             <h1 className='visually-hidden'>Page title</h1>

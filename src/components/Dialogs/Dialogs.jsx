@@ -20,15 +20,16 @@ const Dialogs = (props) => {
         props.state.messages.map((el, index) => <MessagesUser key={index} name={el.name} logoPath={el.logoPath}
                                                               text={el.text}/>);
 
-    let newMessageElement = React.createRef();
+    //let newMessageElement = React.createRef(); //если не использовать Ref()
     let addMessageToComponents = (evt) => {
         evt.preventDefault();
         //props.addMessage();
         props.dispatch(addMessageActionCreator());
     }
 
-    let changeDefaultText = () => {
-        let newText = newMessageElement.current.value;
+    let changeDefaultText = (evt) => {
+        //let newText = newMessageElement.current.value; // применим event
+        let newText = evt.target.value;
         //props.updateNewMessageText(newText);
         props.dispatch(updateNewMessageTextActionCreater(newText));
     }
@@ -50,9 +51,15 @@ const Dialogs = (props) => {
                             <label className='visually-hidden'>
                                 Your message
                             </label>
-                            <textarea name='message' placeholder='your message...' required ref={newMessageElement} value={props.state.newMessageText} onChange={changeDefaultText} />
+                            <textarea name='message'
+                                      placeholder='your message...'
+                                      required
+                                      //ref={newMessageElement} не используем Ref()
+                                      value={props.state.newMessageText}
+                                      onChange={changeDefaultText} />
                         </div>
-                        <button className={`${classes['dialogs__form-btn']}`} type='button' onClick={addMessageToComponents}>
+                        <button className={`${classes['dialogs__form-btn']}`} type='button'
+                                onClick={addMessageToComponents}>
                             Send Message
                         </button>
                     </form>
