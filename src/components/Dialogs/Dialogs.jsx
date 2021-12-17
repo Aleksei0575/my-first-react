@@ -2,10 +2,8 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import UserItem from "./UserItem/UserItem";
 import MessagesUser from "./MessagesUser/MessagesUser";
-import {
-    addMessageActionCreator,
-    updateNewMessageTextActionCreater,
-} from "../../redax/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreater} from "../../redax/dialogs-reducer";
+
 
 const Dialogs = (props) => {
 

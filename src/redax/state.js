@@ -1,9 +1,7 @@
 // Объект с данными для проекта (пока данные для страницы Dialogs и Profile > Posts)
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const ADD_FRIEND = 'ADD-FRIEND';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import asideReducer from "./aside-reducer";
 
 let store = {
     _state: {
@@ -109,48 +107,6 @@ let store = {
         console.log('state change');
     }, // _приватные свойства
 
-    _addPost() {
-        let newPost = {
-            id: this._state.profilePage.posts.id,
-            message: this._state.profilePage.newPostText,
-            likesCount: this._state.profilePage.posts.likesCount
-        };
-
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    }, // _приватные методы меняющие наш state
-    _addMessage() {
-        let newMessage = {
-            id: this._state.dialogsPage.messages.id,
-            name: 'SomeUser',
-            logoPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ALNyG_Cty1d4Xahk-P-UZhAxS0-SiLss1w&usqp=CAU',
-            text: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._callSubscriber(this._state);
-    }, // _приватные методы меняющие наш state
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    }, // _приватные методы меняющие наш state
-    _updateNewMessageText(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this._state);
-    }, // _приватные методы меняющие наш state
-    _addFriend() {
-        let newFriend = {
-            id: 4,
-            name: 'Friend#',
-            activeItem: this._state.aside.friends.activeItem,
-            activePseudo: this._state.aside.friends.activePseudo
-        };
-
-        this._state.aside.friends.push(newFriend);
-        this._callSubscriber(this._state);
-    },
-
     getState() {
         return this._state;
     }, // публичные свойства/методы
@@ -161,39 +117,13 @@ let store = {
     //которая внутри себя вызывает _callSubscriber()
 
     dispatch(action) { //action - объект, который описывет какое действие совершить, имеет
-        if(action.type === ADD_POST) { // обязательное св-во type: '', - которое описывет
-            this._addPost();
-        } else if(action.type === ADD_MESSAGE) {
-            this._addMessage();
-        } else if(action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newText);
-        } else if(action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._updateNewMessageText(action.newText);
-        } else if(action.type === ADD_FRIEND) {
-            this._addFriend();
-        }
+                        // обязательное св-во type: '', - которое описывет
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.aside = asideReducer(this._state.aside, action);
+
+        this._callSubscriber(this._state);
     }
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST, });
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE, });
-
-export const updateNewPostTextActionCreater = (text) =>
-    ({
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text,
-    });
-
-export const updateNewMessageTextActionCreater = (text) =>
-    ({
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newText: text,
-    });
-
-export const addFriendActionCreator = () =>
-    ({
-        type: ADD_FRIEND,
-    });
 
 export default store;

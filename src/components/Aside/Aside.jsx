@@ -3,7 +3,8 @@ import classes from './Aside.module.css';
 import {NavLink} from "react-router-dom";
 import FriendsItem from "./FriendItem/FriendsItem";
 import NavigationItem from "./NavigationItem/NavigationItem";
-import {addFriendActionCreator} from "../../redax/state";
+import {addFriendActionCreator} from "../../redax/aside-reducer";
+
 
 
 const Aside = (props) => {
