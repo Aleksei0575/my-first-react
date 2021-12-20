@@ -110,7 +110,7 @@ let store = {
     getState() {
         return this._state;
     }, // публичные свойства/методы
-    listener(observer) {
+    subscribe(observer) {
         this._callSubscriber = observer;
     },  //публичные свойства/методы функция слушает/наблюдает за state-данными
     //в случае их изменений запускает функцию listener

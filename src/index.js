@@ -1,16 +1,10 @@
-// import state, {listener} from "./redax/state";
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from "./redax/state";
-// import { addMessage } from "./redax/state";
-
+import store from "./redax/redux-store";
 import {BrowserRouter} from "react-router-dom";
-
-
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
@@ -24,7 +18,10 @@ let rerenderEntireTree = (state) => {
 };
 
 rerenderEntireTree(store.getState());
-store.listener(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+});
 
 
 reportWebVitals();
