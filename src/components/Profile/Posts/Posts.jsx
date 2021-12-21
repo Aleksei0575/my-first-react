@@ -1,7 +1,6 @@
 import React from 'react';
 import NewPost from './NewPost/NewPost';
 import classes from './Posts.module.css';
-import {addPostActionCreator, updateNewPostTextActionCreater} from "../../../redax/profile-reducer";
 
 
 const Posts = (props) => {
@@ -14,14 +13,12 @@ const Posts = (props) => {
 
     let addPostToComponents = (evt) => {
         evt.preventDefault();
-        //props.addPost();
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     };
 
     let changeDefaultText = () => {
         let newText = newPostElement.current.value;
-        //props.updateNewPostText(newText);
-        props.dispatch(updateNewPostTextActionCreater(newText));
+        props.updateNewPostText(newText);
     }
     return (
         <div className={`${classes.posts}`}>

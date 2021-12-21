@@ -1,7 +1,7 @@
 import React from "react";
 import InfoUser from "./InfoUser/Info-User";
-import Posts from "./Posts/Posts";
 import classes from './Profile.module.css';
+import PostsContainer from "./Posts/PostsContainer";
 
 const Profile = (props) => {
     // debugger;
@@ -19,7 +19,7 @@ const Profile = (props) => {
                       city="City: Mirnohrad" education="Education: National Mining Academy of Ukraine"
                       sitePath="https://aleksei0575.github.io/myPortfolio/" siteName="My portfolio"/>
 
-            <Posts title="My posts" textButton="Send" post={ props.state.posts } dispatch={props.dispatch} textDefault={props.state.newPostText} />
+            <PostsContainer store={props.store} />
         </div>
     );
 };

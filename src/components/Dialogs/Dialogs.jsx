@@ -2,7 +2,6 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import UserItem from "./UserItem/UserItem";
 import MessagesUser from "./MessagesUser/MessagesUser";
-import {addMessageActionCreator, updateNewMessageTextActionCreater} from "../../redax/dialogs-reducer";
 
 
 const Dialogs = (props) => {
@@ -10,26 +9,29 @@ const Dialogs = (props) => {
     // Функции отрисовки КОМПОНЕНТ в разметке JSX на основе входящих данных из массивов
     // Функция отрисовки КОМПОНЕТЫ UserItem
     let usersElement =
-        props.state.users.map((el, index) => (
+        props.users.map((el, index) => (
             <UserItem key={index} name={el.name} id={el.id} activeItem={el.activeItem}/>));
 
     // Функция отрисовки КОМПОНЕТЫ MessagesUser
     let usersMessages =
-        props.state.messages.map((el, index) => <MessagesUser key={index} name={el.name} logoPath={el.logoPath}
-                                                              text={el.text}/>);
+        props.messages.map((el, index) => (
+            <MessagesUser key={index}
+                          name={el.name}
+                          logoPath={el.logoPath}
+                          text={el.text}/>));
 
     //let newMessageElement = React.createRef(); //если не использовать Ref()
     let addMessageToComponents = (evt) => {
         evt.preventDefault();
-        //props.addMessage();
-        props.dispatch(addMessageActionCreator());
+        props.addMessage();
+        //props.dispatch(addMessageActionCreator());
     }
 
-    let changeDefaultText = (evt) => {
-        //let newText = newMessageElement.current.value; // применим event
+    let changeDefaultText = (evt) => { // применим event
+        //let newText = newMessageElement.current.value;
         let newText = evt.target.value;
-        //props.updateNewMessageText(newText);
-        props.dispatch(updateNewMessageTextActionCreater(newText));
+        props.updateNewMessageText(newText);
+        //props.dispatch(updateNewMessageTextActionCreater(newText));
     }
 
     return (
@@ -52,8 +54,8 @@ const Dialogs = (props) => {
                             <textarea name='message'
                                       placeholder='your message...'
                                       required
-                                      //ref={newMessageElement} не используем Ref()
-                                      value={props.state.newMessageText}
+                                      //ref={newMessageElement} //если не использовать Ref()
+                                      value={props.textDefault}
                                       onChange={changeDefaultText} />
                         </div>
                         <button className={`${classes['dialogs__form-btn']}`} type='button'

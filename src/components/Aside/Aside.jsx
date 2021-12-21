@@ -3,21 +3,18 @@ import classes from './Aside.module.css';
 import {NavLink} from "react-router-dom";
 import FriendsItem from "./FriendItem/FriendsItem";
 import NavigationItem from "./NavigationItem/NavigationItem";
-import {addFriendActionCreator} from "../../redax/aside-reducer";
-
-
 
 const Aside = (props) => {
-    // Функция отрисовки КОМПОНЕТЫ FriendsItem
+    // Функция отрисовки КОМПОНЕТЫ NavigationItem
     let navElement =
-        props.state.navItems.map( (el, index) => (<NavigationItem key={index} linkName={el.linkName} linkPath={el.linkPath}  />) );
+        props.navItems.map( (el, index) => (<NavigationItem key={index} linkName={el.linkName} linkPath={el.linkPath}  />) );
 
     // Функция отрисовки КОМПОНЕТЫ FriendsItem
     let friendsElement =
-        props.state.friends.map( (el, index) => (<FriendsItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} activePseudoEl={el.activePseudo} />) );
+        props.friends.map( (el, index) => (<FriendsItem key={index} name={el.name} id={el.id} activeItem={el.activeItem} activePseudoEl={el.activePseudo} />) );
 
     let addFriendsToComponent = () => {
-        props.dispatch(addFriendActionCreator());
+        props.addFriendActionCreator();
     };
 
     return (
