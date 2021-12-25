@@ -12,7 +12,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import AsideContainer from "./components/Aside/AsideContainer";
 
 
-const    App = (props) => {
+const App = () => {
 
     return (
         <div className="app-wrapper">
@@ -20,19 +20,15 @@ const    App = (props) => {
                 <Header/>
                 <main>
                     <div className="content-wrapper">
-                        <AsideContainer store={ props.store } />
+                        <AsideContainer />
 
                         <section className={"content-wrapper__block"}>
                             <h1 className='visually-hidden'>Page title</h1>
                             <Routes>
                                 <Route path='/'
-                                       element={<Profile
-                                           store={ props.store } />
-                                       }/>
+                                       element={<Profile />} />
                                 <Route path='/dialogs/*'
-                                       element={<DialogsContainer
-                                           store={ props.store } />
-                                       }/>
+                                       element={<DialogsContainer />} />
                                 <Route path='/news/*' element={<News/>} />
                                 <Route path='/music/*' element={<Music/>} />
                                 <Route path='/settings/*' element={<Settings/>} />

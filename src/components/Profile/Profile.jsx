@@ -3,9 +3,8 @@ import InfoUser from "./InfoUser/Info-User";
 import classes from './Profile.module.css';
 import PostsContainer from "./Posts/PostsContainer";
 
-const Profile = (props) => {
-    // debugger;
-    // console.log(props);
+const Profile = () => {
+
     return (
         <div className={`${classes['post-info']}`}>
             <h1 className='visually-hidden'>Post information</h1>
@@ -19,7 +18,7 @@ const Profile = (props) => {
                       city="City: Mirnohrad" education="Education: National Mining Academy of Ukraine"
                       sitePath="https://aleksei0575.github.io/myPortfolio/" siteName="My portfolio"/>
 
-            <PostsContainer store={props.store} />
+            <PostsContainer />
         </div>
     );
 };

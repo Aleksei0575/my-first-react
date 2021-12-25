@@ -2,18 +2,23 @@ import React from "react";
 
 import {addFriendActionCreator} from "../../redax/aside-reducer";
 import Aside from "./Aside";
+import StoreContext from "../../StoreContext";
 
-const AsideContainer = (props) => {
-    let state = props.store.getState().aside;
-
-    let addFriendsToComponent = () => {
-        props.store.dispatch(addFriendActionCreator());
-    };
+const AsideContainer = () => {
 
     return (
-        <Aside addFriendActionCreator={addFriendsToComponent}
-               navItems={state.navItems}
-               friends={state.friends} />
+        <StoreContext.Consumer>
+            {(store) => {
+                let state = store.getState().aside;
+                let addFriendsToComponent = () => {
+                    store.dispatch(addFriendActionCreator());
+                };
+                return <Aside navItems={state.navItems}
+                              friends={state.friends}
+                              addFriendActionCreator={addFriendsToComponent} />
+                }
+            }
+        </StoreContext.Consumer>
     );
 };
 
