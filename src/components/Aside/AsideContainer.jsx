@@ -1,25 +1,22 @@
-import React from "react";
-
 import {addFriendActionCreator} from "../../redax/aside-reducer";
 import Aside from "./Aside";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-const AsideContainer = () => {
 
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                let state = store.getState().aside;
-                let addFriendsToComponent = () => {
-                    store.dispatch(addFriendActionCreator());
-                };
-                return <Aside navItems={state.navItems}
-                              friends={state.friends}
-                              addFriendActionCreator={addFriendsToComponent} />
-                }
-            }
-        </StoreContext.Consumer>
-    );
-};
+let mapStateToProps = (state) => {
+    return {
+        navItems: state.aside.navItems,
+        friends: state.aside.friends
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addFriendActionCreator: () => {
+            dispatch(addFriendActionCreator());
+        }
+    }
+}
+
+const AsideContainer = connect(mapStateToProps, mapDispatchToProps)(Aside);
 
 export default AsideContainer;
