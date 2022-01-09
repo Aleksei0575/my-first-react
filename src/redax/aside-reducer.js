@@ -51,8 +51,10 @@ const asideReducer = (state = initialState, action) => {
                 activePseudo: state.friends.activePseudo
             };
 
-            state.friends.push(newFriend);
-            return state;
+            return {
+                ...state,
+                friends: [...state.friends, newFriend]
+            };
         default:
             return state;
     }
