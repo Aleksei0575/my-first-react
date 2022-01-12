@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 import {Routes, Route} from "react-router";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import AsideContainer from "./components/Aside/AsideContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
                                 <Route path='/news/*' element={<News/>} />
                                 <Route path='/music/*' element={<Music/>} />
                                 <Route path='/settings/*' element={<Settings/>} />
+                                <Route path='/users/*' element={<UsersContainer />} />
                             </Routes>
                         </section>
                     </div>

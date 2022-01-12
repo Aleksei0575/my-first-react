@@ -87,7 +87,7 @@
 }
 
 .aside-bar__friends-item--active {
-  color: red;
+  color: #ff0000;
 }
 
 .aside-bar__friends-item--active::before {

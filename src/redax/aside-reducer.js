@@ -18,6 +18,10 @@ let initialState = {
             linkName: 'Music',
             linkPath: '/music'
         },
+        {
+            linkName: 'Users',
+            linkPath: '/users'
+        },
     ],
     friends: [
         {
