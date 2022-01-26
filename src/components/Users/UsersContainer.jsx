@@ -4,7 +4,7 @@ import {followActionCreator, setUsersActionCreator, unfollowActionCreator} from 
 
 let mapStateToProps = (state) => {
     return {
-        usersInfo: state.usersPage.usersInfo
+        users: state.usersPage.usersInfo
     }
 };
 let mapDispatchToProps = (dispatch) => {
