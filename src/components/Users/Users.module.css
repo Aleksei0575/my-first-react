@@ -8,6 +8,28 @@
     margin: 0 0 20px;
 }
 
+.users__load-btn {
+    display: inline-block;
+    margin: 0 0 25px;
+    padding: 8px 15px;
+    /* min-width: 50px; */
+    text-align: center;
+    vertical-align: middle;
+    /* font-size: 18px; */
+    /* line-height: 24px; */
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 2px 5px rgb(16, 234, 52);
+    background-image: linear-gradient(to bottom, #49f243 0%, #138df8 100%);
+    box-shadow: 0 2px 2px rgba(16, 234, 52, 0.76);
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+
 .users__wrapper {
     display: grid;
     grid-template-columns: 20% 1fr;

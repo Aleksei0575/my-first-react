@@ -4,65 +4,19 @@ import * as axios from 'axios';
 import userAvatar from './../../assets/images/user.png';
 
 const Users = (props) => {
-    if (props.users.length === 0) {//Этих данных здксь НЕ ДОЛЖНО быть, они здксь временно!!!
+    let getUsers = () => {
+        if (props.users.length === 0) {//Этих данных здксь НЕ ДОЛЖНО быть, они здксь временно!!!
 
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                props.setUsers(response.data.items);
-            });
-
-        // props.setUsers(
-        //     [
-        //         {
-        //             id: 5,
-        //             followed: false,
-        //             name: 'Vlad U.',
-        //             logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //             status: 'I am pensioner',
-        //             location: {
-        //                 city: 'Mirnohrad',
-        //                 country: 'Ukraine'
-        //             }
-        //         },
-        //         {
-        //             id: 6,
-        //             followed: false,
-        //             name: 'Katia G.',
-        //             logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //             status: 'I am so beautiful',
-        //             location: {
-        //                 city: 'Geneva',
-        //                 country: 'Switzerland'
-        //             }
-        //         },
-        //         {
-        //             id: 7,
-        //             followed: true,
-        //             name: 'Mikail V.',
-        //             logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //             status: 'I like hockey!!!',
-        //             location: {
-        //                 city: 'St. Peterburg',
-        //                 country: 'Russia'
-        //             }
-        //         },
-        //         {
-        //             id: 8,
-        //             followed: true,
-        //             name: 'Viktor',
-        //             logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //             status: 'I am currently working in Poland',
-        //             location: {
-        //                 city: 'Varshava',
-        //                 country: 'Poland'
-        //             }
-        //         },
-        //     ]
-        // );
-    }//Эти данные - это побочный эффект, а это плохо, это уже не чистая функция
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    props.setUsers(response.data.items);
+                });
+        }//Эти данные - это побочный эффект, а это плохо, это уже не чистая функция
+    }
 
     return <div className={`${classes.users}`}>
         <h2 className={classes['users__title']}>Users</h2>
+        <button className={classes['users__load-btn']} type='button' onClick={getUsers}>Get Users</button>
         {
             props.users.map(user => <div key={user.id}>
                 <div className={classes['users__wrapper']}>
