@@ -6,14 +6,17 @@ import userAvatar from './../../assets/images/user.png';
 
 class Users extends React.Component {//Создали классовую компоненту
 
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     // Если конструктор ничего не дклвет кроме как возвращает новый объект
+    //     // то его можно не писать.
+    //     super(props);
+    // }
 
+    componentDidMount() {
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then(response => {
                 this.props.setUsers(response.data.items);
             });
-
     }
 
     render() {
