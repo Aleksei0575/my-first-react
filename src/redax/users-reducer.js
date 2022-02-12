@@ -1,54 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
-let initialState = {// ВЕТКА. Каждая ветка обслуживает одну какую-то страницу
-    usersInfo: [
-        // {
-        //     id: 1,
-        //     followed: true,
-        //     name: 'Dmitry K.',
-        //     logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //     status: 'I am looking for a job right now...',
-        //     location: {
-        //         city: 'Minsk',
-        //         country: 'Belarus'
-        //     }
-        // },
-        // {
-        //     id: 2,
-        //     followed: true,
-        //     name: 'Svetlana D.',
-        //     logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //     status: 'I am so pretty',
-        //     location: {
-        //         city: 'Minsk',
-        //         country: 'Belarus'
-        //     }
-        // },
-        // {
-        //     id: 3,
-        //     followed: false,
-        //     name: 'Sergey S.',
-        //     logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //     status: 'I like football!!!',
-        //     location: {
-        //         city: 'Kiev',
-        //         country: 'Ukraine'
-        //     }
-        // },
-        // {
-        //     id: 4,
-        //     followed: false,
-        //     name: 'Andrey T.',
-        //     logo: 'https://www.pngall.com/wp-content/uploads/1/Smile.png',
-        //     status: 'I am free to help you to create good Video Production',
-        //     location: {
-        //         city: 'Philadelphia',
-        //         country: 'United State'
-        //     }
-        // },
-    ],
+let initialState = {
+    usersInfo: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -58,7 +18,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 //users: [...state.usersInfo],//такое копирование в данном случае не очень подходит
                 usersInfo: state.usersInfo.map(user => {//подходит такое через map()
-                    if(user.id === action.userId) {
+                    if (user.id === action.userId) {
                         return {...user, followed: true}
                     }
                     return user;
@@ -69,7 +29,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 //users: [...state.usersInfo],//такое копирование в данном случае не очень подходит
                 usersInfo: state.usersInfo.map(user => {//подходит такое через map()
-                    if(user.id === action.userId) {
+                    if (user.id === action.userId) {
                         return {...user, followed: false}
                     }
                     return user;
@@ -77,15 +37,25 @@ const usersReducer = (state = initialState, action) => {
             }
         case SET_USERS:
             return {...state, usersInfo: [/*...state.usersInfo,*/ ...action.users]}
+
+        case SET_CURRENT_PAGE:
+            return {...state, currentPage: action.currentPage}
+
+        case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.count}
         default:
             return state;
     }
 }
 
-export const followActionCreator = (userId) => ({ type: FOLLOW, userId });
+export const followActionCreator = (userId) => ({type: FOLLOW, userId});
 
-export const unfollowActionCreator = (userId) => ({ type: UNFOLLOW, userId });
+export const unfollowActionCreator = (userId) => ({type: UNFOLLOW, userId});
 
-export const setUsersActionCreator = (users) => ({ type: SET_USERS, users });
+export const setUsersActionCreator = (users) => ({type: SET_USERS, users});
+
+export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+
+export const setTotalUsersCountActionCreator = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
 
 export default usersReducer;

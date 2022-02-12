@@ -30,6 +30,32 @@
 
 }
 
+.users__pagination-list {
+    list-style: none;
+    display: flex;
+    /*width: 30%;*/
+    /*justify-content: space-between;*/
+}
+
+.users__pagination-item {
+    /*padding: 5px;*/
+    margin-right: 1.5%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: lightblue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.users__pagination-item--active {
+    background-color: lightcoral;
+}
+
+.users__pagination-active {
+    font-weight: bold;
+}
+
 .users__wrapper {
     display: grid;
     grid-template-columns: 20% 1fr;
@@ -50,6 +76,7 @@
     width: 45%;
     margin-bottom: 15px;
     height: auto;
+    border-radius: 50%;
 }
 
 .users__info button {
